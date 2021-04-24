@@ -11,7 +11,7 @@ public class RegisterTest {
     public WebDriver driver;
 
     @Test
-    public void proba() throws InterruptedException {
+    public void proba() {
         System.setProperty("webdriver.chrome.driver", "C:\\Automation\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://demo.automationtesting.in/Index.html");
@@ -114,6 +114,7 @@ public class RegisterTest {
 
         WebElement SubmitWeb=driver.findElement(By.id("submitbtn"));
         SubmitWeb.click();
+        System.out.println("\nTests passed!");
 
 //        Thread.sleep(3000);
 
