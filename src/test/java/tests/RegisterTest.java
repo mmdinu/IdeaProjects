@@ -1,22 +1,17 @@
+package tests;
+
+import base.BaseTest;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.List;
 
-public class RegisterTest {
 
-    public WebDriver driver;
+public class RegisterTest extends BaseTest {
+
 
     @Test
     public void proba() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("http://demo.automationtesting.in/Index.html");
-        driver.manage().window().maximize();
-
         //inspiration: https://automationintesting.com/selenium/java/lessons/locators
 
         WebElement SkipSignInWeb = driver.findElement(By.id("enterimg"));
@@ -45,7 +40,7 @@ public class RegisterTest {
         String PhoneValue="0744380772";
         PhoneWeb.sendKeys(PhoneValue);
 
-        WebElement GenderWeb=driver.findElement(By.xpath("//input[@value='FeMale']"));
+        WebElement GenderWeb=driver.findElement(By.xpath("//input[@value='Male']"));
         GenderWeb.click();
 
 
@@ -114,14 +109,9 @@ public class RegisterTest {
 
         WebElement SubmitWeb=driver.findElement(By.id("submitbtn"));
         SubmitWeb.click();
-        System.out.println("\nTests passed!");
 
-//        Thread.sleep(3000);
-
-
+        System.out.println("\n Tests passed! \n No registration message appears,\n Nothing change when click on submit button");
 
         driver.close();
-
-
     }
 }

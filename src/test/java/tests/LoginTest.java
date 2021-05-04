@@ -1,23 +1,16 @@
+package tests;
 
+import base.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginTest {
-
-    public WebDriver driver;
+public class LoginTest extends BaseTest {
 
 
 @Test
-public void TestAutomat() throws InterruptedException {
- System.setProperty("webdriver.chrome.driver", "C:\\Automation\\chromedriver.exe");
-    driver = new ChromeDriver();
-        driver.get("http://demo.automationtesting.in/Index.html");
-        driver.manage().window().maximize();
-
+public void TestAutomat() {
 
     WebElement SignInWeb = driver.findElement(By.id("btn1"));
     SignInWeb.click();
@@ -34,7 +27,7 @@ public void TestAutomat() throws InterruptedException {
     System.out.println("Invalid User Name or PassWord");
 
 
-    //Test 1 - fara Password introdusa
+    //Test 1 - fara Password introdus
 
     WebElement EmailWeb=driver.findElement(By.xpath("//input[@placeholder='E mail']"));
     String EmailValue="ioan.moldovan@yahoo.com";
@@ -48,7 +41,6 @@ public void TestAutomat() throws InterruptedException {
     String ExpectedMessage1 = "Invalid User Name or PassWord";
     Assert.assertEquals(ExpectedMessage1, DisplayedMessage1Web.getText());
     System.out.println("Invalid User Name or PassWord");
-    Thread.sleep(3000);
 
     //Test 2 - fara Email introdus
 
@@ -64,7 +56,6 @@ public void TestAutomat() throws InterruptedException {
     String ExpectedMessage2 = "Invalid User Name or PassWord";
     Assert.assertEquals(ExpectedMessage2, DisplayedMessage2Web.getText());
     System.out.println("Invalid User Name or PassWord");
-    Thread.sleep(3000);
 
     // Test 3 - cu Email si Password introduse
 
@@ -83,8 +74,12 @@ public void TestAutomat() throws InterruptedException {
     String ExpectedMessage3 = "Invalid User Name or PassWord";
     Assert.assertEquals(ExpectedMessage3, DisplayedMessage3Web.getText());
     System.out.println("Invalid User Name or PassWord");
-    Thread.sleep(3000);
 
     driver.close();
+
+
+
+
+
     }
 }
